@@ -1,0 +1,111 @@
+1. Create a New Repository
+
+# Create a new Git repository in the current directory.
+$ git init
+
+# Create a new directory and initialize it to the Git repository.
+$ git init [project-name]
+
+# Download a project and its entire code history.
+$ git clone [url]
+ 
+ 2. Configuration
+The setting file for Git is .gitconfig, which can be placed under the user's home directory (global configuration) or 
+under the project directory (project configuration). 
+# Display the current Git configuration.
+$ git config --list
+
+# Edit Git Configuration File.
+$ git config -e [--global]
+
+# Set the user information when submitting code.
+$ git config [--global] user.name "[name]"
+$ git config [--global] user.email "[email address]"
+ 
+ 3. Add/Delete Files
+ 
+ # Add the specified file to the Index.
+$ git add [file1] [file2] ...
+
+# Add the specified directory to the Index, including subdirectories.
+$ git add [dir]
+
+# Add all the files in the current directory to the Index.
+$ git add .
+
+# Being asked to confirm it before adding every change.
+# For multiple changes to the same file, split submission is supported.
+$ git add -p
+
+# Delete the files in the Workspace and put this deletion into the Index.
+$ git rm [file1] [file2] ...
+
+# Stop tracking the specified file, but the file will be remained in the Workspace.
+$ git rm --cached [file]
+
+# Rename the file and put the renamed name into the Index.
+$ git mv [file-original] [file-renamed]
+ 
+4. Code Submission
+# Submit the code from the Index to the Repository.
+$ git commit -m [message]
+
+# Submit the specified file from the Index to the Repository.
+$ git commit [file1] [file2] ... -m [message]
+
+# Submit the changes in the Workspace since the last commit, to the Repository directly.
+$ git commit -a
+
+# Display all diff information when submitting.
+$ git commit -v
+
+# Use a new commit to take the place of the last commit.
+# If the code doesn't have any new changes, it will be used to rewrite the commit information of the last commit.
+$ git commit --amend -m [message]
+
+# Redo the last commit, including the new changes to the specified file.
+$ git commit --amend [file1] [file2] ...
+
+5. Branch
+# List all local branches.
+$ git branch
+
+# List all remote branches.
+$ git branch -r
+
+# List all local branches and remote branches.
+$ git branch -a
+
+# Create a new branch, but still stay in the current branch.
+$ git branch [branch-name]
+
+# Create a new branch and switch to the branch.
+$ git checkout -b [branch]
+
+# Create a new branch, pointing to the specified commit.
+$ git branch [branch] [commit]
+
+# Create a new branch to establish a tracking relationship with the specified remote branch.
+$ git branch --track [branch] [remote-branch]
+
+# Switch to the specified branch and update the workspace.
+$ git checkout [branch-name]
+
+# Switch to the previous branch.
+$ git checkout -
+
+# Establish a tracking relationship between the existing branch and the specified remote branch
+$ git branch --set-upstream [branch] [remote-branch]
+
+# merge the specified branch to the current branch.
+$ git merge [branch]
+
+# Select a commit to be merged into the current branch.
+$ git cherry-pick [commit]
+
+# Delete the branch.
+$ git branch -d [branch-name]
+
+# Delete the remote branch.
+$ git push origin --delete [branch-name]
+$ git branch -dr [remote/branch] 
